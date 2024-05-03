@@ -1,0 +1,12 @@
+{
+    "main-page": "Main Page",
+    "visualizer":"Visualizer",
+    "pokemon-searcher":"Pokemon Searcher",
+    "title": "Pokedex 1st Generation",
+    "en":"English",
+    "es":"Spanish",
+    "fr":"French",
+    "main-page-1": 
+        "This web app collects all first generation Pokemons (1996) which appeared for the first time in the red and green editions."
+    
+}

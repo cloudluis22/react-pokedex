@@ -1,0 +1,172 @@
+@font-face {
+  font-family: 'Pokemon GB';
+  src: url(../../fonts/PokemonGb-RAeo.ttf);
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 225px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 12px solid white;
+  border-radius: 3px;
+}
+
+.flip-card-front {
+  background-color: #efefef;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #efefef;
+  transform: rotateY(180deg);
+  padding: 10px;
+}
+
+.front {
+  font-size: larger;
+  font-weight: bolder;
+  margin-top: 15px;
+}
+
+.pokemon-font {
+  font-family: 'Pokemon GB';
+}
+
+.stats {
+  font-size: large;
+  font-weight: normal;
+  position: relative;
+  bottom: 35px;
+}
+
+
+.pokemon-image {
+  height: 175px;
+  position: relative;
+  bottom: 10%;
+  overflow: hidden;
+}
+
+.pokemon-back-image {
+  height: 125px;
+  position: relative;
+  bottom: 10%;
+  overflow: hidden;
+}
+
+.missigno-image {
+  height: 145px;
+  position: relative;
+  top: 10%;
+  overflow: hidden;
+}
+
+.types-section {
+  margin-top: -60px;
+  font-family: 'Pokemon GB';
+}
+
+.grass-style {
+  color: rgb(123, 199, 65);
+}
+
+.fire-style {
+  color: rgb(242, 55, 0);
+}
+
+.water-style {
+  color: rgb(43, 149, 249)
+}
+
+.poison-style {
+  color: rgb(147, 64, 148);
+}
+
+.bug-style {
+  color: rgb(137, 151, 14);
+}
+
+.normal-style {
+  color: rgb(203, 199, 190);
+}
+
+.electric-style {
+  color: rgb(255, 188, 0);
+}
+
+.ground-style {
+  color: rgb(216, 185, 96);
+}
+
+.flying-style {
+  color: rgb(153, 171, 248); 
+}
+
+.psychic-style {
+  color: rgb(239, 66, 129);
+}
+
+.ghost-style {
+  color: rgb(86, 86, 176);
+}
+
+.rock-style {
+  color: rgb(196, 173, 102);
+}
+
+.ice-style {
+  color: rgb(140, 223, 250);
+}
+
+.dragon-style {
+  color: rgb(57, 73, 198);
+}
+
+.fighting-style {
+  color: rgb(134, 59, 37);
+}
+
+.icon {
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+}
+
+.stat-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.stats {
+  font-family: 'Pokemon GB';
+  font-size: medium;
+  color: black;
+}
+
+@media all and (max-width: 600px) {
+  .nav-btn {
+    display: none;
+  }
+}
