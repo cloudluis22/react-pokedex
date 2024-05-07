@@ -44,9 +44,11 @@ export const PokemonCard = ({idPokemon, name, type1, type2, hp, attack, defense,
   return (<div className='flip-card'>  
         <div className='flip-card-inner'>
             <div className='flip-card-front'>
+             {!isLoading && ( <div>
                 <h3 className='pokemon-font front'> {`${idPokemon}`} </h3>
                 <h3 className='pokemon-font front'> {`${name}`} </h3>
-                <img src={!isLoading ? imagesArray[0] : missigno} className={!isLoading ? `pokemon-image` : `missigno-image` } />
+              </div>) }
+                <img src={!isLoading ? imagesArray[0] : missigno} className={!isLoading ? `pokemon-image` : `animate__animated animate__rotateIn animate__infinite missigno-image` } />
                 { !isLoading && ( <div className='types-section'>
                   <p className={typeStyling(type1)} > {type1} </p>
                   <p className={typeStyling(type2)} > {type2} </p>
