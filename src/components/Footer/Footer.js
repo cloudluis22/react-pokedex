@@ -14,7 +14,7 @@ const Footer = () => {
               </Col>
             </Row>
             <Row>
-                <div> MMXXIV - Ávila & Gordillo™ Productions </div>
+                <div> <b> MMXXIV - Ávila & Gordillo™ Productions </b>  </div>
             </Row>
         </Container>
     </footer>

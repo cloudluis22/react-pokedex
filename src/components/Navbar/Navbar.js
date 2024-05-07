@@ -16,9 +16,9 @@ const MenuNavbar = (props) => {
     
   
     return () => {
-       console.log(language)
+      console.log(language)
     }
-  }, [])
+  }, [language])
   
   
   const [selected] = useState(props.selected)
@@ -26,17 +26,17 @@ const MenuNavbar = (props) => {
   return (
     <Navbar expand="sm" className="bg-body-tertiary">
     <Container>
-      <Navbar.Brand> Pokedex 1st Gen </Navbar.Brand>
+      <Navbar.Brand> {language.main_page_title} </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link as={Link} to={'/'} active={selected === 0 ? true : false} > Inicio </Nav.Link>
-          <Nav.Link as={Link} to={'/visualizer/1'} active={selected === 1 ? true : false} > Visualizador </Nav.Link>
-          <Nav.Link as={Link} to={'/search'} active={selected === 2 ? true : false} > Buscador de Pokemones </Nav.Link>
-          <NavDropdown title={ <span> Idioma <i className="fa-solid fa-language fa-lg"></i> </span> }>
-            <NavDropdown.Item> Español <img src={mx} /> </NavDropdown.Item>
-            <NavDropdown.Item> Inglés <img src={usa} /> </NavDropdown.Item>
-            <NavDropdown.Item> Francés <img src={fr} /> </NavDropdown.Item>
+          <Nav.Link as={Link} to={'/'} active={selected === 0 ? true : false} > {language.main_page} </Nav.Link>
+          <Nav.Link as={Link} to={'/visualizer/1'} active={selected === 1 ? true : false} > {language.visualizer} </Nav.Link>
+          <Nav.Link as={Link} to={'/search'} active={selected === 2 ? true : false} > {language.pokemon_searcher} </Nav.Link>
+          <NavDropdown title={ <span> {language.language} <i className="fa-solid fa-language fa-lg"></i> </span> }>
+            <NavDropdown.Item onClick={() => setLanguage('es')}> {language.es} <img src={mx} /> </NavDropdown.Item>
+            <NavDropdown.Item onClick={() => setLanguage('en')}> {language.en} <img src={usa} /> </NavDropdown.Item>
+            <NavDropdown.Item onClick={() => setLanguage('fr')}> {language.fr} <img src={fr} /> </NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
