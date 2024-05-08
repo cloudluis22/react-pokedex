@@ -1,8 +1,9 @@
 {
     "current_lang":"fr",
+    "light_mode": "Mode Clair",
     "main_page": "Accueil",
     "visualizer":"Visualiseur",
-    "pokemon_searcher":"Pokemon Chercheur",
+    "pokemon_searcher":"Pokemon Rechercheur",
     "title": "Pokedex 1ère Generation",
     "language": "Langue",
     "en":"Anglais",

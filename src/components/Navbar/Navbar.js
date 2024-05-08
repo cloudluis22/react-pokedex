@@ -2,12 +2,14 @@ import { useState, useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import mx from '../../assets/mexico.svg'
 import usa from '../../assets/usa.svg'
 import fr from '../../assets/france.svg'
 import Context from '../../context';
+import PokeballTitle from '../../assets/pokeball-title.svg'
 
 const MenuNavbar = (props) => {
   
@@ -18,7 +20,7 @@ const MenuNavbar = (props) => {
   return (
     <Navbar expand="sm" className="bg-body-tertiary">
     <Container>
-      <Navbar.Brand> {language.main_page_title} </Navbar.Brand>
+      <Navbar.Brand> {<span> <img src={PokeballTitle} style={{width: '50px', height: '50px'}} /> {language.main_page_title} </span>} </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
@@ -30,6 +32,11 @@ const MenuNavbar = (props) => {
             <NavDropdown.Item onClick={() => setLanguage('en')}> {language.en} <img src={usa} /> </NavDropdown.Item>
             <NavDropdown.Item onClick={() => setLanguage('fr')}> {language.fr} <img src={fr} /> </NavDropdown.Item>
           </NavDropdown>
+        </Nav>
+        <Nav className='ms-auto'>
+          <Form className='d-flex align-items-center'>
+              <Form.Check type='switch' label={<span> <i class="fa-solid fa-sun"></i> { language.light_mode } </span>}/> 
+            </Form>
         </Nav>
       </Navbar.Collapse>
     </Container>
