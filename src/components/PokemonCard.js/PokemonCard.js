@@ -97,7 +97,7 @@ export const PokemonCard = ({idPokemon, name, type1, type2, hp, attack, defense,
           return 'Lucha';
 
         default:
-          return ''
+          return '';
       }
     }
 
@@ -150,13 +150,13 @@ export const PokemonCard = ({idPokemon, name, type1, type2, hp, attack, defense,
           return 'Combat';
 
         default:
-          return ''
+          return '';
       }
     }
   }
 
   return (<div className='flip-card'>  
-        <div className='flip-card-inner'>
+        <div className='flip-card-inner border border-light border-3'>
             <div className='flip-card-front'>
              {!isLoading && ( <div>
                 <h3 className='pokemon-font front'> {`${idPokemon}`} </h3>
