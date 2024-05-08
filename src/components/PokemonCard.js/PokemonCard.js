@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './PokemonCard.css'
 import missigno from '../../assets/missigno.png'
 import { Col, Row } from 'react-bootstrap'
+import Context from '../../context'
 
 export const PokemonCard = ({idPokemon, name, type1, type2, hp, attack, defense, special, speed, images, isLoading}) => {
     
   const [imagesArray, setImagesArray] = useState([])
+  const { language } = useContext(Context);
 
   useEffect(() => {
 
@@ -40,7 +42,119 @@ export const PokemonCard = ({idPokemon, name, type1, type2, hp, attack, defense,
     if (type === 'Fighting') return 'fighting-style';
 
   }
-  
+
+  const checkTypeLanguage = (type) => {
+    if(language.current_lang === 'en') {
+      return type;
+    }
+
+    if(language.current_lang === 'es') {
+      switch (type) {
+
+        case 'Grass':
+          return 'Planta';
+          
+        case 'Fire':
+          return 'Fuego';
+
+        case 'Water':
+          return 'Agua';
+
+        case 'Poison':
+          return 'Veneno';  
+        
+        case 'Bug':
+          return 'Bicho';
+          
+        case 'Normal':
+          return 'Normal';
+          
+        case 'Electric':
+          return 'Eléctrico';
+      
+        case 'Ground':
+          return 'Tierra';          
+
+        case 'Flying':
+          return 'Volador'
+        
+        case 'Psychic':
+          return 'Psíquico';          
+
+        case 'Ghost':
+          return 'Fantasma';
+
+        case 'Rock':
+          return 'Roca';
+          
+        case 'Ice':
+          return 'Hielo'
+
+        case 'Dragon':
+          return 'Dragón';
+          
+        case 'Fighting':
+          return 'Lucha';
+
+        default:
+          return ''
+      }
+    }
+
+    if(language.current_lang === 'fr') {
+      switch (type) {
+
+        case 'Grass':
+          return 'Plante';
+          
+        case 'Fire':
+          return 'Feu';
+
+        case 'Water':
+          return 'Eau';
+
+        case 'Poison':
+          return 'Poison';  
+        
+        case 'Bug':
+          return 'Insecte';
+          
+        case 'Normal':
+          return 'Normal';
+          
+        case 'Electric':
+          return 'Électrik';
+      
+        case 'Ground':
+          return 'Sol';          
+
+        case 'Flying':
+          return 'Vol'
+        
+        case 'Psychic':
+          return 'Psy';          
+
+        case 'Ghost':
+          return 'Spectre';
+
+        case 'Rock':
+          return 'Roche';
+          
+        case 'Ice':
+          return 'Glace'
+
+        case 'Dragon':
+          return 'Dragon';
+          
+        case 'Fighting':
+          return 'Combat';
+
+        default:
+          return ''
+      }
+    }
+  }
+
   return (<div className='flip-card'>  
         <div className='flip-card-inner'>
             <div className='flip-card-front'>
@@ -50,8 +164,8 @@ export const PokemonCard = ({idPokemon, name, type1, type2, hp, attack, defense,
               </div>) }
                 <img src={!isLoading ? imagesArray[0] : missigno} className={!isLoading ? `pokemon-image` : `animate__animated animate__rotateIn animate__infinite missigno-image` } />
                 { !isLoading && ( <div className='types-section'>
-                  <p className={typeStyling(type1)} > {type1} </p>
-                  <p className={typeStyling(type2)} > {type2} </p>
+                  <p className={typeStyling(type1)} > {checkTypeLanguage(type1)} </p>
+                  <p className={typeStyling(type2)} > {checkTypeLanguage(type2)} </p>
                 </div>) }
             </div>
             <div className='flip-card-back'>

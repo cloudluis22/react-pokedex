@@ -1,12 +1,15 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useContext } from 'react'
 import MenuNavbar from '../../components/Navbar/Navbar'
 import useFetch from "../../assets/useFetch";
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import { PokemonCard } from "../../components/PokemonCard.js/PokemonCard";
 import Footer from "../../components/Footer/Footer";
+import Context from "../../context";
 
 const Visualizer = () => {
+
+  const { language } = useContext(Context);
 
   const divFocus = useRef(null)
   const {id, s_id} = useParams();
@@ -21,6 +24,9 @@ const Visualizer = () => {
 
   const navigate = useNavigate();
 
+  let type1;
+  let type2;
+  
   useEffect(() => {
 
     const checkButtons = () => {
@@ -103,6 +109,7 @@ const Visualizer = () => {
 }
 
 
+
   const evolucionar = () => {
     setCurrentEvolution(currentEvolution + 1);
     setAnimation('')
@@ -134,9 +141,8 @@ const Visualizer = () => {
     <div onKeyDownCapture={handleKeyboard} tabIndex={0} style={{outline: 'none'}} ref={divFocus}>
       <MenuNavbar selected={1} />
 
-      <h2 className="text-center mt-2"> Visualizador de Pokemones </h2>
-      <h3 className="text-center"> Utilice las flechas o deslice para navegar entre los diferentes Pokemones
-        y sus evoluciones. </h3>
+      <h2 className="text-center mt-2"> {language.visualizer_header_text} </h2>
+      <h3 className="text-center"> {language.visualizer_description_text} </h3>
       
       <Container fluid={true} className="d-flex justify-content-center align-items-center" style={{height: '70vh'}}>
         { data && (

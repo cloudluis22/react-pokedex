@@ -1,4 +1,5 @@
 {
+    "current_lang":"fr",
     "main_page": "Accueil",
     "visualizer":"Visualiseur",
     "pokemon_searcher":"Pokemon Chercheur",
@@ -9,5 +10,7 @@
     "fr":"Français",
     "main_page_title": "Pokedex 1ère Génération",
     "main_page_1": 
-        "Cette web app rassemble tous les Pokémons de première génération (1996) qui ont débuté dans les editions rouge et vert."
+        "Cette web app rassemble tous les Pokémons de première génération (1996) qui ont débuté dans les editions rouge et vert.",
+    "visualizer_header_text": "Visualiseur de Pokémons",
+    "visualizer_description_text": "Utilisez les touches flèches ou faites glisser pour naviguer entre les différents Pokémon et leurs évolutions." 
 }

@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,14 +12,6 @@ import Context from '../../context';
 const MenuNavbar = (props) => {
   
   const {language, setLanguage} = useContext(Context);
-  useEffect(() => {
-    
-  
-    return () => {
-      console.log(language)
-    }
-  }, [language])
-  
   
   const [selected] = useState(props.selected)
 
