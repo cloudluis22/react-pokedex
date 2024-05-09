@@ -1,0 +1,25 @@
+.pokeball-anim:hover {
+    animation: shake ease-in-out 1s;
+    cursor: pointer;
+}
+
+@keyframes shake {
+    0% {
+      transform: translateX(0) rotate(0);
+    }
+    20% {
+      transform: translateX(-7px) rotate(-15deg);
+    }
+    30% {
+      transform: translateX(7px) rotate(15deg);
+    }
+    50% {
+      transform: translateX(-7px) rotate(-15deg);
+    }
+    60% {
+      transform: translateX(7px) rotate(15deg);
+    }
+    100% {
+      transform: translateX(0) rotate(0);
+    }
+  }
