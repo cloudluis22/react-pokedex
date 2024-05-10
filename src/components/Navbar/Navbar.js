@@ -14,9 +14,10 @@ import './Navbar.css'
 
 const MenuNavbar = (props) => {
   
+  const mode = document.documentElement.getAttribute('data-bs-theme');
+  const [lightModeChecked, setLightModeChecked] = useState(mode === 'light' ? true : false);
   const {language, setLanguage} = useContext(Context);
   const [selected] = useState(props.selected);
-  const [lightModeChecked, setLightModeChecked] = useState(false);
 
   const handleLightModeCheck = (e) => {
     setLightModeChecked(e.target.checked);
