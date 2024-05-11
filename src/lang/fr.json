@@ -13,5 +13,6 @@
     "main_page_1": 
         "Cette web app rassemble tous les Pokémons de première génération (1996) qui ont débuté dans les editions rouge et vert.",
     "visualizer_header_text": "Visualiseur de Pokémons",
-    "visualizer_description_text": "Utilisez les touches flèches ou faites glisser pour naviguer entre les différents Pokémon et leurs évolutions." 
+    "visualizer_description_text": "Utilisez les touches flèches ou faites glisser pour naviguer entre les différents Pokémon et leurs évolutions.",
+    "search_placeholder" : "Recherchez des Pokémon par nom ou ID ici"
 }

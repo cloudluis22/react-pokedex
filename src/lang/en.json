@@ -13,5 +13,6 @@
     "main_page_1": 
         "This web app collects all first generation Pokemons (1996) which appeared for the first time in the red and green editions.",
     "visualizer_header_text": "Pokemon Visualizer",
-    "visualizer_description_text": "Use arrows keys or swipe to navigate between Pokemons and their evolutions."
+    "visualizer_description_text": "Use arrows keys or swipe to navigate between Pokemons and their evolutions.",
+    "search_placeholder" : "Search for Pokemons by name or ID here"
 }
