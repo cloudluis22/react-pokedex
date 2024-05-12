@@ -6,7 +6,7 @@ import Context from '../../context'
 
 export const PokemonCard = ({idPokemon, name, type1, type2, hp, attack, defense, special, speed, images, isLoading}) => {
     
-  const [imagesArray, setImagesArray] = useState([])
+  const [imagesArray, setImagesArray] = useState([]);
   const { language } = useContext(Context);
 
   useEffect(() => {
@@ -19,7 +19,6 @@ export const PokemonCard = ({idPokemon, name, type1, type2, hp, attack, defense,
    }
 
    setImagesArray(splitImages());
-   console.log(imagesArray[1])
 
   }, [images, isLoading])
 

@@ -1,7 +1,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import React, { useEffect, useState, useRef, useContext } from 'react'
 import MenuNavbar from '../../components/Navbar/Navbar'
-import useFetch from "../../assets/useFetch";
+import useFetch from "../../hooks/useFetch";
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import { PokemonCard } from "../../components/PokemonCard.js/PokemonCard";
 import Footer from "../../components/Footer/Footer";
@@ -76,8 +76,6 @@ const Visualizer = () => {
     setFocus();
     checkButtons();
     checkLength();
-    console.log(data)
-
   }, [s_id, id, data, currentEvolution])
   
   const handleKeyboard = (event) => {
@@ -179,7 +177,7 @@ const Visualizer = () => {
               </Col>
             </Row>
             <Row className="nav-btn">
-              <Col className="mt-2">
+              <Col className="mt-4">
                 <Button variant="danger" onClick={evolucionar} disabled={cardChangeDown ? false : true}>
                    <i className="fa-solid fa-arrow-down-long fa-xl"></i> </Button>
               </Col>

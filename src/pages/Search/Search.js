@@ -1,16 +1,20 @@
-import {useState, useContext} from 'react'
+import {useState, useContext, useEffect} from 'react'
 import MenuNavbar from '../../components/Navbar/Navbar';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container'
 import Footer from '../../components/Footer/Footer';
 import Context from '../../context';
 import './Search.css'
+import useFetch from '../../hooks/useFetch';
+import SearchCard from '../../components/SearchCard/SearchCard';
 
 export const Search = () => {
 
   const { language } = useContext(Context);
   const [search, setSearch] = useState('')
-  
+  const {data, loading, error} = useFetch(`http://localhost:5000/api/search/${search}`);
+  const [content, setContent] = useState([{name: 'hola'}])
+
   const handleSubmit = (e) => {
     e.preventDefault();
   }
@@ -19,6 +23,7 @@ export const Search = () => {
     setSearch('');
   }
 
+  
   return (
     <div>
       <MenuNavbar selected={2} />
@@ -29,6 +34,12 @@ export const Search = () => {
             <i className="fa-solid fa-magnifying-glass fa-lg input-icon" ></i>
             <i className="fa-solid fa-xmark link-danger fa-lg input-clear" onClick={clearSearch}></i>
           </Form>
+      </Container>
+
+      <Container fluid={true}>
+        {data?.map((pokemon) => {
+          return <SearchCard key={pokemon.Id} idPokemon={pokemon.Id} name={pokemon.Name} images={pokemon.Image_Array}  />
+        })}
       </Container>
       <Footer />
     </div>
