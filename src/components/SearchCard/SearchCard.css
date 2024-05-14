@@ -1,0 +1,13 @@
+.search-card {
+    width: 250px;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.search-card:hover {
+    transform: translateY(-15px);
+    cursor: pointer;
+  }

@@ -23,9 +23,6 @@ const Visualizer = () => {
   const items = data && data[currentEvolution];
 
   const navigate = useNavigate();
-
-  let type1;
-  let type2;
   
   useEffect(() => {
 

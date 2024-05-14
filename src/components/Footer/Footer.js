@@ -6,10 +6,10 @@ const Footer = () => {
     <footer>
         <Container fluid className='fixed-bottom d-flex flex-column align-items-center bg-body-tertiary'>
             <Row>
-              <Col md='auto'>
+              <Col>
                 <a href='https://www.pokemon.com/el/pokedex' target='_blank' > <i className="fa-solid fa-database fa-lg link-secondary"></i> </a>
               </Col>
-              <Col md='auto'>
+              <Col>
                 <a href='https://github.com/cloudluis22/react-pokedex' target='_blank' > <i className="fa-brands fa-github fa-lg link-secondary"></i> </a>
               </Col>
             </Row>

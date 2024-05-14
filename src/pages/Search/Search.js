@@ -1,6 +1,8 @@
 import { useState, useContext } from 'react'
 import MenuNavbar from '../../components/Navbar/Navbar';
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container'
 import Footer from '../../components/Footer/Footer';
 import Context from '../../context';
@@ -37,9 +39,16 @@ export const Search = () => {
       </Container>
 
       <Container fluid={true}>
+        <Row xs={1} md={2} lg={4}>
         {data?.map((pokemon) => {
-          return <SearchCard key={pokemon.Id} idPokemon={pokemon.Id} name={pokemon.Name} images={pokemon.Image_Array}  />
+          return(
+            <Col key={ pokemon.Id }>
+              <SearchCard key={pokemon.Id} idPokemon={pokemon.Id} name={pokemon.Name} images={pokemon.Image_Array} speciesId={pokemon.Id_Species}  />
+            </Col>
+          )
         })}
+
+        </Row>
       </Container>
       <Footer />
     </div>
