@@ -10,9 +10,14 @@
     "es":"Espagnol",
     "fr":"Français",
     "main_page_title": "Pokedex 1ère Génération",
-    "main_page_1": 
+    "home_page_1": 
         "Cette web app rassemble tous les Pokémons de première génération (1996) qui ont débuté dans les editions rouge et vert.",
     "visualizer_header_text": "Visualiseur de Pokémons",
     "visualizer_description_text": "Utilisez les touches flèches ou faites glisser pour naviguer entre les différents Pokémon et leurs évolutions.",
-    "search_placeholder" : "Recherchez des Pokémon par nom ou ID ici"
+    "search_placeholder" : "Recherchez des Pokémon par nom ou ID ici",
+    "homepage_credits":"Projet réalisé par José Luis Ávila et Alfredo Gordillo.",
+    "home_page_welcome":"Bienvenue à notre Pokedex.",
+    "home_page_3":
+        "Utilisez le visualiseur pour inspecter tous les Pokemon. Vous pouvez aussi retrouver des Pokemons par numéro ou par nom en utilisant le rechercheur.",
+    "used_tools" : "Voici les libraires et les outils utilisés dans ce projet:"
 }

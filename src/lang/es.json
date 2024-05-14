@@ -14,5 +14,11 @@
         "Esta aplicación web recoleta todos los Pokémones de la primera generación (1996) que aparecieron primer vez en las ediciones rojo y verde.",
     "visualizer_header_text": "Visualizador de Pokémones",
     "visualizer_description_text": "Utilice las flechas o deslice para navegar entre los diferentes Pokemones y sus evoluciones.",
-    "search_placeholder" : "Busca Pokémones por nombre o ID aquí"
+    "search_placeholder" : "Busca Pokémones por nombre o ID aquí",
+    "homepage_credits":"Proyecto hecho por José Luis Ávila y Alfredo Gordillo.",
+    "home_page_welcome":"Bienvenidos a nuestra Pokedex",
+    "home_page_3":
+        "Usa la página Visualizador para ver todos los Pokémones. También puedes buscar cualquier Pokémon por número o nombre en la pestaña de buscador.",
+    "used_tools" : "Estas son las librerías y herramientas utilizadas para realizar este proyecto:"
+    
 }
