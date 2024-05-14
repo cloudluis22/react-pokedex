@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import MenuNavbar from '../../components/Navbar/Navbar';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
@@ -9,13 +9,13 @@ import Context from '../../context';
 import './Search.css'
 import useFetch from '../../hooks/useFetch';
 import SearchCard from '../../components/SearchCard/SearchCard';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 export const Search = () => {
 
   const { language } = useContext(Context);
   const [search, setSearch] = useState('')
-  const {data, loading, error} = useFetch(`http://localhost:5000/api/search/${search}`);
-  const [content, setContent] = useState([{name: 'hola'}])
+  const {data, loading, error, setData} = useFetch(`http://localhost:5000/api/search/${search}`);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +25,65 @@ export const Search = () => {
     setSearch('');
   }
 
+  const sortIdAsc = () => {
+    if(data) {
+      const sortedContent = [...data].sort((a, b) => {
+        if (a.Id < b.Id) {
+          return 1;
+        }
+        if (a.Id > b.Id) {
+          return -1;
+        }
+        return 0;
+      }) 
+      setData(sortedContent)
+    }
+  }
+
+  const sortIdDesc = () => {
+    if(data) {
+      const sortedContent = [...data].sort((a, b) => {
+        if (a.Id < b.Id) {
+          return -1;
+        }
+        if (a.Id > b.Id) {
+          return 1;
+        }
+        return 0;
+      }) 
+      setData(sortedContent)
+    }
+  }
+
+  const sortNameAsc = () => {
+    if(data) {
+      const sortedContent = [...data].sort((a, b) => {
+        if (a.Name < b.Name) {
+          return -1;
+        }
+        if (a.Name > b.Name) {
+          return 1;
+        }
+        return 0;
+      }) 
+      setData(sortedContent)
+    }
+  }
+
+  const sortNameDesc = () => {
+    if(data) {
+      const sortedContent = [...data].sort((a, b) => {
+        if (a.Name < b.Name) {
+          return 1;
+        }
+        if (a.Name > b.Name) {
+          return -1;
+        }
+        return 0;
+      }) 
+      setData(sortedContent)
+    }
+  }
   
   return (
     <div>
@@ -38,7 +97,19 @@ export const Search = () => {
           </Form>
       </Container>
 
-      <Container fluid={true}>
+      <Container fluid={true} className='px-5'>
+        <Dropdown className='mb-5'>
+          <Dropdown.Toggle variant='secondary' id='sort-dropdown'>
+            {language.sort} 
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={sortIdAsc}>  {language.descending}  </Dropdown.Item>
+            <Dropdown.Item onClick={sortIdDesc}> {language.ascending}  </Dropdown.Item>
+            <Dropdown.Item onClick={sortNameAsc}>  A-Z  </Dropdown.Item>
+            <Dropdown.Item onClick={sortNameDesc}>  Z-A  </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
         <Row xs={1} md={2} lg={4}>
         {data?.map((pokemon) => {
           return(

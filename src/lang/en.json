@@ -19,5 +19,8 @@
     "home_page_welcome":"Welcome to our Pokedex",
     "home_page_3":
         "Use the visualizer page to view all Pokemon. You can also look up for any Pokemon by number or name using the Search page.",
-    "used_tools" : "These are the used libraries and tools for this project:"
+    "used_tools" : "These are the used libraries and tools for this project:",
+    "sort": "Sort",
+    "descending" : "Descending Order",
+    "ascending": "Ascending Order"
 }
