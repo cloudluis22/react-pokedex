@@ -94,6 +94,7 @@ export const Search = () => {
              value={search} onChange={(e) => setSearch(e.target.value)} />
             <i className="fa-solid fa-magnifying-glass fa-lg input-icon" ></i>
             <i className="fa-solid fa-xmark link-danger fa-lg input-clear" onClick={clearSearch}></i>
+            <i class="fa-solid fa-microphone fa-lg input-microphone"></i>
           </Form>
       </Container>
 
@@ -110,7 +111,7 @@ export const Search = () => {
           </Dropdown.Menu>
         </Dropdown>
 
-        <Row xs={1} md={2} lg={4}>
+        <Row xs={1} md={2} lg={3} xl={4}>
         {data?.map((pokemon) => {
           return(
             <Col key={ pokemon.Id }>

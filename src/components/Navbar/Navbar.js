@@ -11,13 +11,17 @@ import fr from '../../assets/france.svg'
 import Context from '../../context';
 import PokeballTitle from '../../assets/pokeball-title.svg'
 import './Navbar.css'
+import useSound from 'use-sound';
+import select from '../../assets/SELECT.mp3'
 
 const MenuNavbar = (props) => {
   
   const mode = document.documentElement.getAttribute('data-bs-theme');
   const [lightModeChecked, setLightModeChecked] = useState(mode === 'light' ? true : false);
+  const [soundEnabled, setSoundEnabled] = useState(localStorage.getItem('sound') === 'true' ? true : false );
   const {language, setLanguage} = useContext(Context);
   const [selected] = useState(props.selected);
+  const [playSelect] = useSound(select)
 
   const handleLightModeCheck = (e) => {
     setLightModeChecked(e.target.checked);
@@ -29,6 +33,22 @@ const MenuNavbar = (props) => {
     }
   };
 
+  const handleEnableSound = (e) => {
+    setSoundEnabled(e.target.checked);
+    if(!soundEnabled) {
+      localStorage.setItem('sound', 'true');
+    }
+    else {
+      localStorage.setItem('sound', 'false');
+    }
+  }
+
+  const handleSound = () => {
+    if (soundEnabled) {
+      playSelect();
+    }
+  }
+
 
   return (
     <Navbar expand="sm" className="bg-body-tertiary">
@@ -37,9 +57,9 @@ const MenuNavbar = (props) => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link as={Link} to={'/'} active={selected === 0 ? true : false} > {<span> <i className="fa-solid fa-house"></i> {language.main_page} </span>} </Nav.Link>
-          <Nav.Link as={Link} to={'/visualizer/1'} active={selected === 1 ? true : false} > {<span> <i className="fa-solid fa-tv"></i> {language.visualizer} </span>}  </Nav.Link>
-          <Nav.Link as={Link} to={'/search'} active={selected === 2 ? true : false} > {<span> <i className="fa-solid fa-magnifying-glass"></i> {language.pokemon_searcher} </span>} </Nav.Link>
+          <Nav.Link as={Link} to={'/'} active={selected === 0 ? true : false} onClick={handleSound} > {<span> <i className="fa-solid fa-house"></i> {language.main_page} </span>} </Nav.Link>
+          <Nav.Link as={Link} to={'/visualizer/1'} active={selected === 1 ? true : false} onClick={handleSound} > {<span> <i className="fa-solid fa-tv"></i> {language.visualizer} </span>}  </Nav.Link>
+          <Nav.Link as={Link} to={'/search'} active={selected === 2 ? true : false} onClick={handleSound} > {<span> <i className="fa-solid fa-magnifying-glass"></i> {language.pokemon_searcher} </span>} </Nav.Link>
           <NavDropdown title={ <span> <i className="fa-solid fa-language fa-lg"></i> {language.language} </span> }>
             <NavDropdown.Item onClick={() => setLanguage('es')}> {language.es} <img src={mx} /> </NavDropdown.Item>
             <NavDropdown.Item onClick={() => setLanguage('en')}> {language.en} <img src={usa} /> </NavDropdown.Item>
@@ -50,10 +70,17 @@ const MenuNavbar = (props) => {
           <Form className='d-flex align-items-center'>
               <Form.Check
                type='switch'
-               label={<span> <i className="fa-solid fa-sun"></i> { language.light_mode } </span>}
+               label={ <span> <i className={`fa-solid ${lightModeChecked ? 'fa-sun' : 'fa-moon'}`}></i> { language.light_mode } </span>}
                checked={lightModeChecked}
                onChange={handleLightModeCheck}
                />
+              <Form.Check
+               type='switch'
+               label={ <span> <i className={`fa-solid ${soundEnabled ? 'fa-volume-high' : 'fa-volume-xmark'}`}></i> { language.sound } </span>}
+               checked={soundEnabled}
+               onChange={handleEnableSound}
+               className='ms-3'
+               />               
             </Form>
         </Nav>
       </Navbar.Collapse>

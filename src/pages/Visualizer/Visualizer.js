@@ -6,6 +6,9 @@ import { Button, Container, Row, Col } from 'react-bootstrap';
 import { PokemonCard } from "../../components/PokemonCard.js/PokemonCard";
 import Footer from "../../components/Footer/Footer";
 import Context from "../../context";
+import useSound from 'use-sound';
+import changeSound from '../../assets/SFX_ARROW_TILES.mp3';
+import evolutionSound from '../../assets/SFX_SWAP.mp3';
 
 const Visualizer = () => {
 
@@ -21,6 +24,9 @@ const Visualizer = () => {
   const [currentEvolution, setCurrentEvolution] = useState(0)
   const [animation, setAnimation] = useState('animate__animated animate__fadeIn')
   const items = data && data[currentEvolution];
+
+  const [playNextPokemon] = useSound(changeSound);
+  const [playEvolution] = useSound(evolutionSound);
 
   const navigate = useNavigate();
   
@@ -111,6 +117,7 @@ const Visualizer = () => {
     setTimeout(() => {
       setAnimation('animate__animated animate__flipInX animate__faster')
     }, 1);
+    handleSound('evolution');
   }
 
   const involucionar = () => {
@@ -120,6 +127,7 @@ const Visualizer = () => {
     setTimeout(() => {
       setAnimation('animate__animated animate__flipInX animate__faster')
     }, 1);
+    handleSound('evolution');
   }
 
   const changeSpecies = () => {
@@ -129,7 +137,26 @@ const Visualizer = () => {
     setTimeout(() => {
       setAnimation('animate__animated animate__fadeIn animate__faster')
     }, 1);
-    
+    handleSound('change');
+  }
+
+  const handleSound = (sound) => {
+    const soundEnabled = localStorage.getItem('sound');
+    if(soundEnabled === 'true') {
+      switch (sound) {
+        case 'change':
+          playNextPokemon();
+          break;
+
+        case 'evolution':
+          playEvolution();
+          break;
+
+        default:
+          console.log('sound not found');
+          break;
+      }
+    }
   }
   
   return (

@@ -1,6 +1,7 @@
 {
     "current_lang":"fr",
-    "light_mode": "Mode Clair",
+    "light_mode": "Changer Thème",
+    "sound": "Effets de Son",
     "main_page": "Accueil",
     "visualizer":"Visualiseur",
     "pokemon_searcher":"Pokemon Rechercheur",
